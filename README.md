@@ -54,6 +54,7 @@ flutter build web --release --base-href="/repo_name/"   # Add base href for GitH
 ## 📁 **Deploy to `/docs` Folder (Recommended for GitHub Pages)**
 
 ```bash
+flutter build web --release --base-href="/Shiv-Poster-Generator/"
 mkdir -p docs                         # Create docs folder
 cp -r build/web/* docs/               # Copy web build to docs
 git add .
