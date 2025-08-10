@@ -2,6 +2,8 @@
 
 ---
 
+
+
 ## 🔧 GitHub Repository Setup
 
 ```bash
@@ -20,10 +22,57 @@ git push -u origin main                    # Push code to GitHub main branch
 ```bash
 git checkout main                          # Switch to existing branch
 git checkout -b new_branch                 # Create and switch to a new branch
-git branch                                 # View all local branches
+git branch                                 # View all local branches # Check if main exists locally
 git pull origin main                       # Pull latest changes from remote main
 git clone <repo_url>                       # Clone an existing GitHub repository
 ```
+---
+
+## **Git is asking for your GitHub login   **
+
+
+```bash
+git remote set-url origin <Github repo link>       # <Github repo link - https://github.com/visheshasanadhya/  .git>
+git push -u origin main
+
+```
+
+**Generate and use a Personal Access Token:**
+
+1. Go to GitHub → Settings → Developer settings → Personal access tokens → Tokens (classic).
+2. Click Generate new token,
+3. select:repo (full control for private/public repos)
+4. Set an expiry date.
+5. Copy the token (you won’t see it again).
+6. In the terminal, when it asks for a password, paste this token instead.
+
+It will ask for:
+
+```bash
+Username for 'https://github.com': your_github_username
+Password for 'https://github.com': <paste your token here>
+
+```
+## methord 2 -
+
+1. The URL in your Git repo is still using HTTPS without the token
+If you just run git push and enter username/token, it should work — but if it keeps failing, you can embed the token directly into your remote URL to skip prompts:
+
+```bash
+git remote set-url origin https://<USERNAME>:<TOKEN>@github.com/visheshasanadhya/BMDU-E_Commerce-_app.git
+Example (replace <USERNAME> and <TOKEN>):
+```
+```bash
+git remote set-url origin https://visheshasanadhya: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@github.com/visheshasanadhya/BMDU-E_Commerce-_app.git
+```
+Then push:
+
+```bash
+git push -u origin main
+
+```
+
+
 
 ---
 
@@ -37,6 +86,29 @@ git checkout -- filename                   # Discard uncommitted changes to a fi
 git rm --cached filename                   # Untrack file but keep it locally
 rm -rf .git && git init                    # Delete Git history and start fresh
 git reset --hard                           # Reset all changes to last commit
+git branch -d main                         # Delete branch locally in system
+git push origin --delete main              # Delete branch from GitHub too (if pushed)
+git checkout main                          # switch back to your working branch (e.g., main)
+git fetch --tags                           # fetch the tags from the remote first: tags (ex.-v1 and v2) build when release apk on github
+git tag                                    # Then check the tags list: You should see v1 and v2 listed.
+                                           
+git checkout Calling-Api-Outside           # switch back to your working branch Calling-Api-Outside branch to GitHub
+git push origin Calling-Api-Outside        # Push Calling-Api-Outside branch to GitHub
+```
+
+
+---
+
+## 🌐 **Flutter Android app Build Commands**
+
+```bash
+flutter build apk --release                             # Build Flutter app in release mode
+flutter build apk --release --no-tree-shake-icons       # Keep unused icons
+```
+The generated APK will still be in:
+
+```swift
+build/app/outputs/flutter-apk/app-release.apk
 ```
 
 ---
@@ -67,6 +139,9 @@ git push origin main
 ## 🚀 **Deploy to `gh-pages` Branch (Alternative)**
 
 ```bash
+
+flutter build web --release --no-tree-shake-icons --base-href "/repo_name/"     # Step 1: Build the web app with proper base href
+
 cd build/web                          # Navigate to build/web
 git init
 git remote add origin <repo_url>
@@ -75,6 +150,28 @@ git add .
 git commit -m "Deploy to GitHub Pages"
 git push -f origin gh-pages           # Force push to gh-pages
 ```
+
+---
+
+## 🚀 **Deploy to `gh-pages` Branch (Alternative)**
+
+```bash
+
+flutter build web --release --no-tree-shake-icons --base-href "/repo_name/"     # Step 1: Build the web app with proper base href
+
+cd build/web                          # Navigate to build/web
+git init
+git remote add origin <repo_url>
+git checkout -b gh-pages
+git add .
+git commit -m "Deploy to GitHub Pages"
+git push -f origin gh-pages           # Force push to gh-pages
+```
+
+---
+
+
+
 
 ---
 
@@ -110,6 +207,32 @@ flutter doctor                           # Show environment setup issues
 
 ---
 
+### ✅ Optional Git Commands (You used earlier)
+
+```bash
+git init                              # Initialize git repo
+git status                            # See changes
+git add .                             # Add all files
+git commit -m "message"               # Save changes with message
+git remote add origin <url>           # Link to remote repo
+git push -u origin main               # Push to GitHub (main branch)
+```
+
+---
+
+
+
+
+
+
+
+
+
+
+
+
+---
+
 ## 🔥 **Hot Reload / Hot Restart**
 
 * Press `r` → **Hot Reload**
@@ -126,19 +249,34 @@ clear                                    # Clear terminal screen
 code .                                   # Open current folder in VS Code
 ```
 
+
+
+
+
+
+
+
+
+
+
+
 ---
 Sure Vishesha! Here's a **complete list of Flutter commands** you've either used before or will likely use often — categorized for better clarity. These commands help in device setup, project management, dependency management, build, and debugging.
 
 ---
 
-## 🔁 **DEVICE & EMULATOR RELATED**
+## 🔁 **DEVICE CONNECTION  &  EMULATOR RELATED**
 
 ```bash
+adb devices                           # First-Time Setup (Needs USB Once) and Enable Developer Options & USB Debugging on your phone
+adb tcpip 5555                        # Enable Wireless Debugging
+adb connect 192.168.29.27:5555        # adb connect <Your-Phone-IP> . Go to Settings → About Phone → Status or Wi-Fi details. 
 flutter devices                        # List all connected devices
+
 flutter emulators                     # List available emulators
 flutter emulators --launch <id>       # Launch an emulator
 flutter run                           # Run app on default device
-flutter run -d <device_id>            # Run on specific device
+flutter run -d <device_id>            # Run on specific device 
 ```
 
 ---
