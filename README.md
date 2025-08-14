@@ -268,6 +268,7 @@ Sure Vishesha! Here's a **complete list of Flutter commands** you've either used
 ## 🔁 **DEVICE CONNECTION  &  EMULATOR RELATED**
 
 ```bash
+ipconfig                                 # check IP of system
 adb devices                           # First-Time Setup (Needs USB Once) and Enable Developer Options & USB Debugging on your phone
 adb tcpip 5555                        # Enable Wireless Debugging
 adb connect 192.168.29.27:5555        # adb connect <Your-Phone-IP> . Go to Settings → About Phone → Status or Wi-Fi details. 
