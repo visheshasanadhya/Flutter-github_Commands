@@ -56,6 +56,7 @@ Password for 'https://github.com': <paste your token here>
 ## methord 2 -
 
 1. The URL in your Git repo is still using HTTPS without the token
+
 If you just run git push and enter username/token, it should work — but if it keeps failing, you can embed the token directly into your remote URL to skip prompts:
 
 ```bash
@@ -72,6 +73,41 @@ git push -u origin main
 
 ```
 
+---
+
+---
+
+## 🌐 **Setup Git In system Commands**
+
+
+To check your Git username and email configuration, use the following commands in your terminal:
+1. To view all Git configuration settings, including username and email:
+Code
+```bash
+git config --list
+This command displays all configured Git settings. Look for user.name and user.email in the output.
+```
+2. To view only your Git username:
+Code
+```bash
+git config user.name
+```
+3. To view only your Git email:
+Code
+```bash
+git config user.email
+```
+4. To check global-level username configuration specifically:
+Code
+```bash
+git config --global user.name
+```
+5. To check global-level email configuration specifically:
+Code
+```bash
+git config --global user.email
+```
+These commands will display the configured values if they are set. If no output is returned, it means the specific configuration is not set at that level (global or local, depending on whether --global is used).
 
 
 ---
@@ -95,6 +131,9 @@ git tag                                    # Then check the tags list: You shoul
 git checkout Calling-Api-Outside           # switch back to your working branch Calling-Api-Outside branch to GitHub
 git push origin Calling-Api-Outside        # Push Calling-Api-Outside branch to GitHub
 ```
+
+
+
 
 
 ---
