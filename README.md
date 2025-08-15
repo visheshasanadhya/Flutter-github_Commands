@@ -328,6 +328,36 @@ flutter run                           # Run app on default device
 flutter run -d <device_id>            # Run on specific device 
 ```
 
+##To use web app by adb device
+
+
+ Run Flutter web server bound to your IP
+```bash
+flutter run -d web-server --web-hostname=0.0.0.0 --web-port=8080
+```
+This will serve the app on all network interfaces.
+
+
+---
+
+Open the URL on Android
+
+In the Flutter console, you’ll see something like:
+
+Running on http://0.0.0.0:8080
+
+Replace 0.0.0.0 with your actual IPv4 address from Step 1, e.g.:
+```bash
+http://192.168.1.5:8080
+```
+Make sure your Android device is connected to the same Wi-Fi network as your computer.
+
+Open that link in Chrome (or any browser) on your Android device.
+
+
+
+---
+
 ---
 
 ## 🔧 **PROJECT SETUP & CREATION**
