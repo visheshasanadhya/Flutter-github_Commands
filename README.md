@@ -306,6 +306,15 @@ Sure Vishesha! Here's a **complete list of Flutter commands** you've either used
 
 ## 🔁 **DEVICE CONNECTION  &  EMULATOR RELATED**
 
+To restart device
+```bash
+adb kill-server
+adb start-server
+
+```
+
+
+
 ```bash
 ipconfig                                 # check IP of system
 adb devices                           # First-Time Setup (Needs USB Once) and Enable Developer Options & USB Debugging on your phone
